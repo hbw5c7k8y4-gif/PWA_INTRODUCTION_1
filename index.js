@@ -1,8 +1,12 @@
 const express = require("express");
+
 const app = express();
-app.get("/", (req, res) => {
-  res.send("<h1>My First PWA</h1><p>Created using Node.js and Express.</p>");
-});
-app.listen(3000, () => {
-  console.log("Server running on port 3000");
+const PORT = 3000;
+
+// Serve files from the public folder
+app.use(express.static("public"));
+
+// Start the server
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
